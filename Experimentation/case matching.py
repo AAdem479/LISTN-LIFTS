@@ -29,5 +29,5 @@ def prototype():
                 print("Please input a valid option.")
 
 
-if __name__ == "__main__":
+if __name__ == "__main__":#
     prototype()
