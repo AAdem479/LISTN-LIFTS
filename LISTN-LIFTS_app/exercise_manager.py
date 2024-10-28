@@ -37,7 +37,7 @@ def add_exercise():
 
     exercises[exercise] = {"status": "not completed"}
 
-    print("Task added successfully!")
+    print("Exercise added successfully!")
     display_exercises(status=None)
 
 
@@ -46,9 +46,9 @@ def remove_exercise():
         choice = return_choice()
         exercise_to_remove = list(exercises.keys())[choice]
         exercises.pop(exercise_to_remove)
-        print(f"Task '{exercise_to_remove}' removed successfully!")
+        print(f"Exercise '{exercise_to_remove}' removed successfully!")
     else:
-        print("Invalid task number.")
+        print("Invalid exercise number.")
 
 
 def update_exercise_complete():
@@ -56,9 +56,9 @@ def update_exercise_complete():
         choice = return_choice()
         exercise_to_complete = list(exercises.keys())[choice]
         exercises[exercise_to_complete]["status"] = "completed"
-        print(f"Task '{exercise_to_complete}' marked as complete successfully!")
+        print(f"Exercise '{exercise_to_complete}' marked as complete successfully!")
     else:
-        print("Invalid task number.")
+        print("Invalid exercise number.")
 
 
 def update_exercise_incomplete():
@@ -68,7 +68,7 @@ def update_exercise_incomplete():
         exercises[exercise_to_incomplete]["status"] = "not completed"
         print(f"Exercise '{exercise_to_incomplete}' marked as incomplete successfully!")
     else:
-        print("Invalid task number.")
+        print("Invalid exercise number.")
 
 
 # inner exercise manipulation

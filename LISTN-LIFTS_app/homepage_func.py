@@ -13,5 +13,5 @@ def homepage():
           "\nJ. to edit the amount of reps of an exercise",
           "\nK. to exit the app")
 
-    choice = input("Please select a (A/B/C/D/E/F/G/H)!: ")
+    choice = input("Please select a (A/B/C/D/E/F/G/H/I/J/K)!: ")
     return choice
