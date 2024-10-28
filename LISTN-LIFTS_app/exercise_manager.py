@@ -5,7 +5,7 @@ from exercise_displays import display_exercises
 # anti-duplication functions
 
 
-def display_exercises_loop():
+def show_exercises():
     if len(exercises) == 0:
         print("You currently have no planned exercises.")
         return False
@@ -20,7 +20,7 @@ def return_choice():
     while True:
         choice = input("Please enter the number of the exercise you'd like to modify: ").strip()
         if choice.isdigit() and 1 <= int(choice) <= len(exercises):
-            return int(choice)
+            return int(choice) - 1
         else:
             print("Please input a valid exercise number.")
 
@@ -42,9 +42,9 @@ def add_exercise():
 
 
 def remove_exercise():
-    if display_exercises_loop():
+    if show_exercises():
         choice = return_choice()
-        exercise_to_remove = list(exercises.keys())[int(choice) - 1]
+        exercise_to_remove = list(exercises.keys())[choice]
         exercises.pop(exercise_to_remove)
         print(f"Task '{exercise_to_remove}' removed successfully!")
     else:
@@ -52,9 +52,9 @@ def remove_exercise():
 
 
 def update_exercise_complete():
-    if display_exercises_loop():
+    if show_exercises():
         choice = return_choice()
-        exercise_to_complete = list(exercises.keys())[int(choice) - 1]
+        exercise_to_complete = list(exercises.keys())[choice]
         exercises[exercise_to_complete]["status"] = "completed"
         print(f"Task '{exercise_to_complete}' marked as complete successfully!")
     else:
@@ -62,9 +62,9 @@ def update_exercise_complete():
 
 
 def update_exercise_incomplete():
-    if display_exercises_loop():
+    if show_exercises():
         choice = return_choice()
-        exercise_to_incomplete = list(exercises.keys())[int(choice) - 1]
+        exercise_to_incomplete = list(exercises.keys())[choice]
         exercises[exercise_to_incomplete]["status"] = "not completed"
         print(f"Exercise '{exercise_to_incomplete}' marked as incomplete successfully!")
     else:
@@ -75,10 +75,10 @@ def update_exercise_incomplete():
 
 
 def general_exercise_editing(item):
-    if not display_exercises_loop():
+    if not show_exercises():
         return
     choice = return_choice()
-    chosen_exercise = list(exercises.keys())[int(choice) - 1]
+    chosen_exercise = list(exercises.keys())[choice]
     key_position = exercises.pop(chosen_exercise)
     match item:
         case "exercise_name":
