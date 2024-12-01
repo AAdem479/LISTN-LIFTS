@@ -13,8 +13,8 @@ def display_exercises(status):
         case None:
             print("Your exercises for the day are: ")
     for i, (exercise_details, current_status) in enumerate(exercises.items(), 1):
-        exercise_name, sets, reps = exercise_details
+        exercise_name, sets, reps, formatted_today = exercise_details # unpacking tuple
         if status is None: # outputs ALL exercises regardless of status
-            print(f"{i}: Workout: {exercise_name}, Sets: {sets}, Reps: {reps}, Status: {current_status['status']}")
+            print(f"{i}: Workout: {exercise_name}, Sets: {sets}, Reps: {reps}, Status: {current_status['status']}, Date: {formatted_today}")
         elif current_status['status'] == status: # outputs exercises based on status = ("completed" or "not completed")
             print(f"{i}: Workout: {exercise_name}, Sets: {sets}, Reps: {reps}, Status: {current_status['status']}")

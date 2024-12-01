@@ -1,5 +1,6 @@
 from data import exercises
 from exercise_displays import display_exercises
+from datetime import date
 
 
 # anti-duplication functions
@@ -10,7 +11,7 @@ def show_exercises():
         print("You currently have no planned exercises.")
         return False # false if dictionary is empty
     else:
-        print("Your exercises are:")
+        print("Your exercises are: ")
         for i, (workout, status) in enumerate(exercises.items(), 1):  # display with enumeration
             print(f"{i}: Workout: {workout[0]}, Sets: {workout[1]}, Reps: {workout[2]}, Status: {status['status']}")
         return True
@@ -32,8 +33,10 @@ def add_exercise():
     exercise_name = input("Enter the workout name: ")
     sets = int(input("Enter the number of sets: "))
     reps = int(input("Enter the number of reps: "))
+    today = date.today()
+    formatted_today = today.strftime('%b-%d-%Y')
 
-    exercise = (exercise_name, sets, reps) # adds item to exercise dictionary based on previous inputs 
+    exercise = (exercise_name, sets, reps, formatted_today) # adds item to exercise dictionary based on previous inputs 
 
     exercises[exercise] = {"status": "not completed"} # if exercise was just added, of course it's incomplete
 
